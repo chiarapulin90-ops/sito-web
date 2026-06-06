@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosa offro — Chiara Pulin</title>
+  <link rel="stylesheet" href="css/theme-terra.css">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    .service-meta {
+      display: flex;
+      gap: 2rem;
+      margin: 1.5rem 0 2rem;
+      flex-wrap: wrap;
+    }
+    .meta-item {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .meta-item strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--color-primary);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0;
+      text-transform: none;
+      margin-bottom: 0.2rem;
+    }
+
+    .payment-note {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      font-style: italic;
+      margin-top: 0.8rem;
+      margin-bottom: 0;
+    }
+
+    /* Riduci spaziature specifiche di questa pagina */
+    .page-hero { padding: 8rem 2rem 3rem; }
+    .service-block { padding: 2rem 0; }
+
+    /* Percorsi */
+    .percorsi-section { padding: 2rem 0 2.5rem; }
+    .percorsi-intro {
+      max-width: 620px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .percorsi-intro h2 { font-style: italic; margin-bottom: 0.5rem; }
+    .percorsi-intro p { color: var(--color-text-muted); font-size: 1.05rem; }
+
+    .percorsi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .percorso-card {
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      display: flex;
+      flex-direction: column;
+    }
+    .percorso-card .label { margin-bottom: 0.6rem; }
+    .percorso-card h3 { font-style: italic; margin-bottom: 1rem; font-size: 1.3rem; }
+    .percorso-card p { font-size: 1rem; color: var(--color-text-muted); flex: 1; line-height: 1.65; margin-bottom: 1.5rem; text-align: justify; }
+    .percorso-meta {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.2rem;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .percorso-meta span {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+    .percorso-meta strong {
+      color: var(--color-primary);
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 1rem;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    /* Foto fra le card percorsi */
+    .percorso-photo {
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      aspect-ratio: 4 / 5;
+      align-self: center;
+    }
+    .percorso-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+
+    .dark-quote {
+      background: var(--hero-gradient);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .dark-quote blockquote {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--color-hero-text);
+    }
+
+    @media (max-width: 900px) {
+      .percorsi-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .percorso-photo { aspect-ratio: 4/3; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-logo">Chiara Pulin</a>
+      <div class="nav-social-icons">
+        <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="nav-icon-link" aria-label="Substack">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 6H2v2.5h20V6zm0 5.3H2V14h20v-2.7zM2 16.6v6.4l10-5 10 5v-6.4H2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="nav-icon-link" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#chi-sono">Chi sono</a></li>
+      <li><a href="servizi.html" style="color: var(--color-primary);">Cosa offro</a></li>
+      <li><a href="poesia.html">Poesia</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <h1 style="font-size: clamp(1.8rem, 4.3vw, 3.6rem);">Letture e percorsi individuali</h1>
+    <span class="line-dec"></span>
+    <p class="tagline">Il Tarot al servizio del Lavoro su di sé</p>
+  </div>
+
+  <!-- Intro — striscia marrone -->
+  <div style="background: #3D1F0A; padding: 1.5rem 2rem; text-align: center;">
+    <p style="font-size: 1.25rem; color: var(--color-hero-text); font-style: italic; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+      Il Tarocco può insegnarti a vivere il presente con occhi nuovi, riscoprire la tua bellezza<br>
+      e manifestare la tua verità più profonda.
+    </p>
+  </div>
+
+  <!-- Lettura individuale -->
+  <section class="section" style="padding: 2rem 0;">
+    <div class="container">
+      <div class="service-block fade-in">
+        <div class="service-visual" style="align-self: center;"><img src="SERVIZI1.jpg" alt="Lettura con il Tarocco"></div>
+        <div class="service-detail">
+          <span class="label">Lettura individuale</span>
+          <h2>Lettura con il Tarocco<br>di Marsiglia</h2>
+          <span class="line-dec line-dec-left"></span>
+          <p>
+            Una sessione individuale, per portare chiarezza su un punto a te caro.
+            Useremo il Tarot come specchio del tuo mondo interiore, non per predire il futuro,
+            ma per illuminare ciò che c'è.
+          </p>
+          <p>
+            Ci prenderemo il tempo che serve. Per esperienza varia fra i 40 minuti e 1 ora e mezza.
+          </p>
+          <p>
+            Costruiremo insieme la tua domanda, ascolteremo le carte e tradurremo insieme il loro
+            messaggio, perché possa diventare una risorsa nella tua vita quotidiana.
+          </p>
+          <p>
+            Il Tarocco diviene strumento di lavoro su di sé, non prende decisioni al posto tuo
+            perché la responsabilità della tua vita è nelle tue mani,
+            ma ti fornisce chiavi di volta e strumenti indispensabili alla tua crescita.
+          </p>
+
+          <div class="service-meta" style="align-items: flex-start;">
+            <div class="meta-item">
+              <strong>60 euro</strong>
+              Costo
+            </div>
+            <div class="meta-item">
+              <strong>Online</strong>
+              Modalità
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <a href="mailto:chiara.pulin.90@gmail.com" class="btn btn-filled" style="margin-top: 0; align-self: flex-start;">Contattami</a>
+              <p class="payment-note" style="margin-top: 0;">Il pagamento (PayPal o IBAN) avviene a lettura avvenuta.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Percorsi individuali -->
+  <section class="section section-alt percorsi-section">
+    <div class="container">
+      <div class="percorsi-intro fade-in">
+        <h2>Percorsi individuali</h2>
+        <span class="line-dec"></span>
+        <p>Cammini strutturati nel tempo, adattabili alle tue esigenze,<br>per accompagnarti verso la tua verità.</p>
+      </div>
+
+      <div class="percorsi-grid">
+
+        <div class="percorso-card fade-in">
+          <span class="label">12 mesi</span>
+          <h3>Taroccolento</h3>
+          <p>
+            Un lavoro profondo attraverso la stesa dell'anno, che invita alla convivenza con un arcano al mese.
+            Un accompagnamento lento per imparare a riconoscere le energie del Tarot dentro di te e nella vita,
+            usandolo come specchio e mappa. Dispense ed esercizi ad ogni incontro.
+          </p>
+          <div class="percorso-meta">
+            <span>Struttura: <strong>1 incontro al mese</strong></span>
+            <span>Costo: <strong>70 euro / mese</strong></span>
+            <span>Modalità: <strong>Online</strong></span>
+          </div>
+        </div>
+
+        <div class="percorso-photo fade-in">
+          <img src="sito3.jpg" alt="Chiara Pulin">
+        </div>
+
+        <div class="percorso-card fade-in">
+          <span class="label">Mensile · flessibile</span>
+          <h3>Convivenza</h3>
+          <p>
+            Un mese di convivenza per arcano, quando vorrai, anche non consecutivo, anche un solo mese.
+            Pescato o scelto con criterio. Esercizi e stese per risvegliare la sua energia dentro di te,
+            integrare i suoi insegnamenti e imparare a riconoscerlo nella vita quotidiana. Dispense ed esercizi.
+          </p>
+          <div class="percorso-meta">
+            <span>Struttura: <strong>2 incontri al mese</strong></span>
+            <span>Costo: <strong>90 euro / mese</strong></span>
+            <span>Modalità: <strong>Online</strong></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem;" class="fade-in">
+        <a href="mailto:chiara.pulin.90@gmail.com" class="btn btn-filled">Contattami</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quote scura -->
+  <div class="dark-quote fade-in">
+    <blockquote>
+      Non devi farcela da sola.<br>
+      Posso affiancarti in questo cammino,<br>
+      con percorsi costruiti sui tuoi bisogni più profondi,<br>
+      dove il Tarot sarà la mappa per ritrovare chiarezza, direzione e pace.
+    </blockquote>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-name">
+      Chiara Pulin
+      <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="servizi.html">Cosa offro</a></li>
+      <li><a href="poesia.html">Poesia</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+      <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
+      <li>
+        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p class="footer-copy">© 2025 Chiara Pulin — Tutti i diritti riservati</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

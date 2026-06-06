@@ -1,0 +1,13 @@
+:root {
+  --color-bg:         #F5EDD8;
+  --color-surface:    #EDE0C4;
+  --color-primary:    #C4853A;
+  --color-secondary:  #8B3A2A;
+  --color-accent:     #5A6B47;
+  --color-text:       #2C1A0E;
+  --color-text-muted: #7A5230;
+  --color-border:     #D4B89A;
+  --color-overlay:    rgba(44, 26, 14, 0.52);
+  --color-hero-text:  #F5EDD8;
+  --hero-gradient:    linear-gradient(160deg, #3D1F0A 0%, #8B5A2A 45%, #5A6B47 100%);
+}

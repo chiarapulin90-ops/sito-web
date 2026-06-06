@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chiara Pulin — Tarologa · Poetessa</title>
+  <link rel="stylesheet" href="css/theme-terra.css">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* Hero */
+    .hero-rule {
+      display: flex; align-items: center; gap: 1rem; justify-content: center; margin: 0.8rem 0;
+    }
+    .hero-rule span { display: block; width: 55px; height: 1px; background: var(--color-hero-text); opacity: 0.38; }
+    .hero-rule em {
+      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-hero-text); opacity: 0.75;
+    }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 5rem); font-style: italic; }
+    .hero-logo-img { display: block; margin: 0 auto 1.8rem; filter: brightness(1.6) saturate(0.7); }
+
+    /* Chi sono — due foto sfalsate */
+    .about-text p { text-align: justify; }
+    .about-duo { display: flex; flex-direction: column; align-self: center; max-width: 220px; }
+    .about-duo img:first-child {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block;
+    }
+    .about-duo img:last-child {
+      width: 86%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block;
+      align-self: flex-end; margin-top: -2.5rem; margin-right: -2rem;
+      position: relative; z-index: 1; box-shadow: -5px 5px 16px rgba(0,0,0,0.14);
+    }
+
+    /* 2 card centrate senza pulsanti */
+    .services-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .services-grid-2 .service-card .btn { display: none; }
+    .services-grid-2 .service-card p { margin-bottom: 0; }
+
+    /* Carosello testimonianze */
+    .testimonials-carousel {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .carousel-window { overflow: hidden; flex: 1; }
+    .carousel-slide {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .carousel-slide.active {
+      display: grid;
+      animation: fadeSlide 0.45s ease;
+    }
+    .carousel-slide.single-card { display: none; justify-content: center; }
+    .carousel-slide.single-card.active { display: flex; }
+    .carousel-slide.single-card .testimonial-card { flex: 0 0 calc(50% - 0.75rem); }
+    @keyframes fadeSlide {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .carousel-btn {
+      background: none;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      width: 42px; height: 42px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: color 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
+    .testimonials-carousel .testimonial-card { min-height: 210px; }
+    .testimonials-carousel .testimonial-card p { text-align: justify; }
+    .testimonial-initial {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--color-primary);
+      letter-spacing: 0.15em;
+      margin-top: auto;
+      padding-top: 0.8rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-duo { max-width: 160px; margin: 0 auto; }
+      .services-grid-2 { grid-template-columns: 1fr; max-width: 480px; }
+      .carousel-slide { grid-template-columns: 1fr; }
+      .carousel-slide.single-card .testimonial-card { flex: 0 0 100%; }
+    }
+    @media (max-width: 600px) {
+      .testimonials-carousel { gap: 0.5rem; }
+      .carousel-btn { width: 34px; height: 34px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav-brand">
+      <div class="nav-logo nav-logo-light">Chiara Pulin</div>
+      <div class="nav-social-icons">
+        <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="nav-icon-link" aria-label="Substack">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 6H2v2.5h20V6zm0 5.3H2V14h20v-2.7zM2 16.6v6.4l10-5 10 5v-6.4H2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="nav-icon-link" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#chi-sono">Chi sono</a></li>
+      <li><a href="servizi.html">Cosa offro</a></li>
+      <li><a href="poesia.html">Poesia</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="logo-alt.svg" alt="Chiara Pulin" class="hero-logo-img" width="90" height="103">
+      <div class="hero-rule">
+        <span></span>
+        <em>Esploratrice dell'essere</em>
+        <span></span>
+      </div>
+      <h1>Chiara Pulin</h1>
+      <div class="hero-rule">
+        <span></span>
+        <em>lavoro su di sè · tarocco · poesia</em>
+        <span></span>
+      </div>
+      <p class="tagline" style="margin-top: 1.2rem; color: var(--color-hero-text);">
+        Ricordati chi sei e manifesta con coraggio la tua verità.<br>Al di là del caos c'è la pace del tuo cuore, ci sei tu.
+      </p>
+    </div>
+    <div class="hero-scroll">scorri</div>
+  </section>
+
+  <!-- Chi sono -->
+  <section class="section" id="chi-sono">
+    <div class="container">
+      <div class="about-teaser fade-in" style="align-items: center;">
+        <div class="about-duo">
+          <img src="sito2.jpg" alt="Chiara Pulin">
+          <img src="sito4.jpg" alt="Chiara Pulin">
+        </div>
+        <div class="about-text">
+          <span class="label">Chi sono</span>
+          <h2 style="font-style: italic;">Ricercatrice della Verità in costante evoluzione</h2>
+          <span class="line-dec line-dec-left"></span>
+          <p>In questa vita ho vissuto molte vite, e le porto tutte con me.</p>
+          <p>Per anni ho lavorato in stalla con le capre (mio grande amore), finché il mio cuore non ha più retto emotivamente, e mi sono arresa.<br>
+          In quel momento tutto è crollato.<br>
+          <em>Perché tutto doveva cambiare.</em></p>
+          <p>È stato proprio in quel periodo che ho incontrato il <em>Lavoro su di sé</em> (divulgato da Salvatore Brizzi) e il <em>tarocco</em> (che ho studiato con Fabiana Spagnuolo). Rimasi esterrefatta da quanto riuscisse a leggermi dentro questo strumento. Pura magia.</p>
+          <p>Così mi sono lasciata accompagnare da entrambi, nelle altre vite attraversate, fino a quella di oggi, della quale sono colonne portanti.</p>
+          <a href="servizi.html" class="btn">Scopri i servizi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frase — spostata subito dopo chi sono -->
+  <div class="quote-section fade-in" style="background: #3D1F0A; padding: 4.5rem 2rem;">
+    <blockquote style="color: var(--color-hero-text);">
+      Hai mai pensato a confusione e insoddisfazione come tuoi alleati?<br>
+      Ciò che credi essere il problema è l'alleato che ti chiede di ascoltare<br>
+      i tuoi bisogni più profondi.
+    </blockquote>
+  </div>
+
+  <!-- Come posso accompagnarti — 2 card, nessun pulsante individuale, CTA unico -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">il tarocco come mappa interiore</span>
+        <h2>Come posso accompagnarti</h2>
+        <span class="line-dec"></span>
+      </div>
+      <div class="services-grid-2 fade-in">
+        <div class="service-card">
+          <h3>Lettura con il tarocco di Marsiglia</h3>
+          <p>Una sessione individuale, per portare chiarezza su un punto a te caro.<br>
+          Il Tarot sarà specchio del tuo mondo interiore, per illuminare ciò che c'è, non per predire il futuro.</p>
+        </div>
+        <div class="service-card">
+          <h3>Percorsi individuali</h3>
+          <p>Cammini strutturati nel tempo, adattabili alle tue esigenze, per incontrare la tua verità.
+          Convivenze con gli arcani, esercizi creativi per integrarne l'energia e stese profonde per lavorare su di te attraverso questo strumento.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;" class="fade-in">
+        <a href="servizi.html" class="btn btn-filled">Scopri di più</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workshop ed eventi — spostato dalla pagina servizi -->
+  <section class="section" style="padding: 3rem 0;">
+    <div class="container">
+      <div class="service-block fade-in" style="padding: 2rem 0;">
+        <div class="service-visual" style="align-self: center; max-height: 360px; overflow: hidden;">
+          <img src="SERVIZI2.jpg" alt="Workshop ed eventi" style="height: 360px; width: 100%; object-fit: cover; object-position: center;"></div>
+        <div class="service-detail">
+          <span class="label">Insieme, in presenza</span>
+          <h2>Workshop ed eventi</h2>
+          <span class="line-dec line-dec-left"></span>
+          <p>
+            Momenti di condivisione ed esplorazione di sé attraverso il Tarot ed altri strumenti,
+            sostenuti dalla forza del gruppo.
+          </p>
+          <p>
+            Ogni workshop avrà un tema e sarà pensato come uno spazio sicuro nel quale scoprirsi
+            e sostenersi, nella propria bellezza e verità.
+          </p>
+          <p>
+            Collaboro con formatori teatrali, insegnanti di yoga e meditazione, sound healer
+            e personal stylist. Sono sempre aperta a nuove collaborazioni stimolanti.
+          </p>
+          <a href="eventi.html" class="btn btn-filled">eventi in programma</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Le vostre testimonianze — carosello 2 card per volta -->
+  <section class="section testimonials-section" id="testimonianze">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="label">Voci</span>
+        <h2>Le vostre testimonianze</h2>
+        <span class="line-dec"></span>
+      </div>
+      <div class="testimonials-carousel fade-in">
+        <button class="carousel-btn carousel-prev" aria-label="Precedente">&#8592;</button>
+        <div class="carousel-window">
+
+          <!-- Slide 1 -->
+          <div class="carousel-slide active">
+            <div class="testimonial-card">
+              <p>Dolce, empatica, raffinata e super preparata, delicata e mai fuori posto. È riuscita a creare un clima di intimità e di piacevole fiducia. Ha una fortissima capacità di ascolto, empatia e comprensione dell'altro, sa metterti a proprio agio anche sfiorando delicatamente temi profondi e personali. Un regalo tra amiche apprezzatissimo.</p>
+              <div class="testimonial-initial">D.</div>
+            </div>
+            <div class="testimonial-card">
+              <p>Hai saputo accompagnare con gentilezza e rispetto ognuna di noi. Ti ringrazio per aver abbracciato e accolto ogni nostra parola, per aver posto le domande in modo gentile. Ogni tua parola e ogni sguardo per me erano conforto.</p>
+              <div class="testimonial-initial">I.</div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <div class="testimonial-card">
+              <p>Chiara è stata un regalo per tutte. Con la sua delicatezza ha fatto sì che l'intera esperienza fosse piacevole e adatta alla sensibilità di ognuna. È stata una serata bella, serena e interessante. Credo che sarebbe splendido vivere l'esperienza anche individualmente.</p>
+              <div class="testimonial-initial">E.</div>
+            </div>
+            <div class="testimonial-card">
+              <p>Grazie per il lavoro fatto con il Cuore. L'ho percepito tanto.</p>
+              <div class="testimonial-initial">A.</div>
+            </div>
+          </div>
+
+          <!-- Slide 3 — singola, centrata -->
+          <div class="carousel-slide single-card">
+            <div class="testimonial-card">
+              <p>Ieri è stato davvero potente. Ho elaborato nelle ore successive quanto mi ci rivedo in quello che è venuto fuori, incredibilmente tanto. Accolgo questa dolce osservazione di me stessa.</p>
+              <div class="testimonial-initial">J.</div>
+            </div>
+          </div>
+
+        </div>
+        <button class="carousel-btn carousel-next" aria-label="Successivo">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-name">
+      Chiara Pulin
+      <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#chi-sono">Chi sono</a></li>
+      <li><a href="servizi.html">Cosa offro</a></li>
+      <li><a href="poesia.html">Poesia</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+      <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
+      <li>
+        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p class="footer-copy">© 2025 Chiara Pulin — Tutti i diritti riservati</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

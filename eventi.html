@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventi — Chiara Pulin</title>
+  <link rel="stylesheet" href="css/theme-terra.css">
+  <link rel="stylesheet" href="css/base.css">
+  <style>
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    .events-section { padding: 4rem 0 6rem; }
+
+    .events-intro {
+      max-width: 600px;
+      margin: 0 auto 4rem;
+      text-align: center;
+      color: var(--color-text-muted);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Evento passato: opacità ridotta */
+    .event-card.past { opacity: 0.5; }
+    .event-card.past .event-date .day { color: var(--color-text-muted); }
+
+    .events-divider {
+      text-align: center;
+      margin: 3rem 0;
+      position: relative;
+    }
+    .events-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0; right: 0;
+      height: 1px;
+      background: var(--color-border);
+    }
+    .events-divider span {
+      position: relative;
+      background: var(--color-bg);
+      padding: 0 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .newsletter-cta {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      padding: 3rem;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .newsletter-cta h3 { font-style: italic; margin-bottom: 1rem; }
+    .newsletter-cta p { color: var(--color-text-muted); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+    .upcoming-msg {
+      text-align: center;
+      font-style: italic;
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      padding: 2rem 0 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-brand">
+      <a href="index.html" class="nav-logo">Chiara Pulin</a>
+      <div class="nav-social-icons">
+        <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="nav-icon-link" aria-label="Substack">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 6H2v2.5h20V6zm0 5.3H2V14h20v-2.7zM2 16.6v6.4l10-5 10 5v-6.4H2z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="nav-icon-link" aria-label="Instagram">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html#chi-sono">Chi sono</a></li>
+      <li><a href="servizi.html">Cosa offro</a></li>
+      <li><a href="poesia.html">Poesia</a></li>
+      <li><a href="eventi.html" style="color: var(--color-primary);">Eventi</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <span class="label" style="margin-bottom: 0.8rem;">Incontri e workshop</span>
+    <h1>Eventi</h1>
+    <span class="line-dec"></span>
+    <p class="tagline">Perché dal vivo è tutta un'altra storia.</p>
+  </div>
+
+  <section class="events-section">
+    <div class="container">
+
+      <!-- Prossimi eventi -->
+      <div class="section-header fade-in" style="text-align: left; margin-bottom: 1.5rem;">
+        <span class="label">In programma</span>
+      </div>
+
+      <!-- Evento in programma -->
+      <div class="events-list fade-in" style="margin-bottom: 2rem;">
+
+        <div class="event-card">
+          <div class="event-date">
+            <div class="day">28</div>
+            <div class="month">Giu 2026</div>
+          </div>
+          <div class="event-info">
+            <span class="label">Workshop · Tarocco &amp; Teatro</span>
+            <h3>TaroTeatro</h3>
+            <p>Spazio Kiros, Abano Terme (PD) — con <a href="https://www.instagram.com/follucida/" target="_blank" style="color: var(--color-primary);">Paolo Frigo</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem;"><a href="https://taroteatro-28giugno.netlify.app/" target="_blank" style="color: var(--color-primary); border-bottom: 1px solid var(--color-border);">Qui</a> per info e iscrizioni.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Newsletter CTA -->
+      <div class="newsletter-cta fade-in">
+        <span class="label" style="margin-bottom: 0.8rem;">Resta aggiornata</span>
+        <h3>Non perdere i prossimi eventi</h3>
+        <span class="line-dec"></span>
+        <p>Iscriviti alla newsletter su Substack per ricevere in anteprima<br>le date dei prossimi workshop ed eventi.</p>
+        <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="btn btn-filled">
+          Iscriviti
+        </a>
+      </div>
+
+      <div class="events-divider fade-in">
+        <span>eventi passati</span>
+      </div>
+
+      <!-- Eventi passati -->
+      <div class="events-list fade-in">
+
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="day">18</div>
+            <div class="month">Apr 2026</div>
+          </div>
+          <div class="event-info">
+            <span class="label">Workshop · Tarocco e Sound Healing</span>
+            <h3>Il Suono degli Arcani</h3>
+            <p>E.volve studio, Belluno — con <a href="#" style="color: var(--color-primary);">Alessia Piccinino</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem;"><a href="https://www.instagram.com/p/DXUnQ03DLn-/" target="_blank" style="color: var(--color-primary); border-bottom: 1px solid var(--color-border);">Qui</a> puoi vedere un estratto.</p>
+          </div>
+        </div>
+
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="day">8</div>
+            <div class="month">Ago 2025</div>
+          </div>
+          <div class="event-info">
+            <span class="label">Evento</span>
+            <h3>Il Giardino dei Visionari</h3>
+            <p>Le Boe Del Forte, Forte dei Marmi</p>
+            <p style="margin-top: 0.5rem; font-size: 0.95rem;"><a href="https://www.instagram.com/p/DNLQwH8IC_a/" target="_blank" style="color: var(--color-primary); border-bottom: 1px solid var(--color-border);">Qui</a> puoi vedere un estratto.</p>
+          </div>
+        </div>
+
+        <div class="event-card past">
+          <div class="event-date">
+            <div class="day">24–25</div>
+            <div class="month">Mag 2025</div>
+          </div>
+          <div class="event-info">
+            <span class="label">Evento</span>
+            <h3>Vino al Vino</h3>
+            <p>Villa Bassi, Padova</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-name">
+      Chiara Pulin
+      <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="servizi.html">Cosa offro</a></li>
+      <li><a href="poesia.html">Poesia</a></li>
+      <li><a href="eventi.html">Eventi</a></li>
+      <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
+      <li>
+        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </li>
+    </ul>
+    <p class="footer-copy">© 2025 Chiara Pulin — Tutti i diritti riservati</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

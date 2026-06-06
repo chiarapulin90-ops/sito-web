@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 135" width="140" height="135" role="img" aria-label="Chiara Pulin — alternativa">
+  <title>Chiara Pulin — logo alternativo</title>
+
+  <!--
+    Variante con arricciamento della C verso l'INTERNO (destra):
+    i terminali della C si arrotondano verso destra, nel lato del P.
+    Confrontare con logo.svg dove i terminali vanno verso sinistra.
+  -->
+
+  <!-- Pentacolo — identico al logo principale -->
+  <polygon
+    points="70,7 77.64,30.51 57.64,15.98 82.36,15.98 62.36,30.51"
+    fill="none"
+    stroke="#C4853A"
+    stroke-width="1.5"
+    stroke-linejoin="miter"/>
+
+  <!-- C — arco sinistro con terminali che si arrotondano verso DESTRA (interno) -->
+  <!--
+    Terminali verso l'interno (destra):
+    - Top: da (79, 54) → control (79, 47) → top cerchio (70.5, 47)
+    - Bottom: da (70.5, 93) → control (79, 93) → (79, 86)
+    I terminali finiscono sul lato destro, verso l'interno della metà sinistra.
+  -->
+  <path
+    d="M 79 54 Q 79 47 70.5 47
+       A 23 23 0 1 0 70.5 93
+       Q 79 93 79 86"
+    fill="none"
+    stroke="#C4853A"
+    stroke-width="1.6"
+    stroke-linecap="round"
+    stroke-linejoin="round"/>
+
+  <!-- P — arco destro / pancia (invariato) -->
+  <path
+    d="M 70.5 47 A 23 23 0 0 1 70.5 93"
+    fill="none"
+    stroke="#C4853A"
+    stroke-width="1.6"
+    stroke-linecap="round"/>
+
+  <!-- Asse verticale (invariato) -->
+  <line x1="70" y1="47" x2="70" y2="126"
+    stroke="#C4853A" stroke-width="1.6" stroke-linecap="round"/>
+
+  <!-- Croce (invariata) -->
+  <line x1="56" y1="112" x2="84" y2="112"
+    stroke="#C4853A" stroke-width="1.6" stroke-linecap="round"/>
+
+</svg>
