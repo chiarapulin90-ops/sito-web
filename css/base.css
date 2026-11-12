@@ -602,7 +602,7 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
   display: block;
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 0.88rem;
+  font-size: 1.76rem;
   color: var(--color-text-muted);
   margin-top: 0.35rem;
   letter-spacing: 0.02em;

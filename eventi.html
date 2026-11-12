@@ -68,6 +68,85 @@
       font-size: 1.05rem;
       padding: 2rem 0 3rem;
     }
+
+    /* === BOX "Il Tarocco al tuo evento" === */
+    .evento-richiesta {
+      position: relative;
+      background: var(--hero-gradient);
+      border: 1px solid var(--color-primary);
+      padding: 3.2rem 2.5rem;
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .evento-richiesta::before {
+      content: '';
+      position: absolute;
+      inset: 9px;
+      border: 1px solid rgba(245, 237, 216, 0.25);
+      pointer-events: none;
+    }
+    .evento-richiesta > * { position: relative; }
+    .evento-richiesta .label { color: #E6BC82; font-size: 0.92rem; letter-spacing: 0.24em; margin-bottom: 0.9rem; }
+    .evento-richiesta h2 {
+      font-style: italic;
+      color: var(--color-hero-text);
+      font-size: clamp(1.6rem, 3.6vw, 2.3rem);
+      line-height: 1.25;
+    }
+    .evento-richiesta .line-dec { background: rgba(230, 188, 130, 0.75); margin: 1.4rem auto; }
+    .evento-richiesta p {
+      color: rgba(245, 237, 216, 0.88);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .evento-richiesta .richiesta-cta { margin-top: 1.4rem; font-style: italic; color: var(--color-hero-text); }
+    .scrivimi-link {
+      font: inherit;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: #E6BC82;
+      border-bottom: 1px solid rgba(230, 188, 130, 0.6);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .scrivimi-link:hover { color: #F5EDD8; border-bottom-color: #F5EDD8; }
+    .mail-box {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.4rem;
+    }
+    .mail-box.open { display: flex; }
+    .mail-box a {
+      font-size: 1.05rem;
+      color: var(--color-hero-text);
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid rgba(245, 237, 216, 0.4);
+    }
+    .mail-copy {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-hero-text);
+      background: none;
+      border: 1px solid rgba(245, 237, 216, 0.45);
+      padding: 0.4rem 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .mail-copy:hover { background: rgba(245, 237, 216, 0.92); color: #3D1F0A; }
+
+    @media (max-width: 768px) {
+      .evento-richiesta { padding: 2.4rem 1.4rem; }
+      .evento-richiesta p { font-size: 1.05rem; }
+      .evento-richiesta p br { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -104,6 +183,19 @@
 
   <section class="events-section">
     <div class="container">
+
+      <!-- Il Tarocco al tuo evento -->
+      <div class="evento-richiesta fade-in">
+        <span class="label">Su richiesta</span>
+        <h2>Il Tarocco al tuo evento</h2>
+        <span class="line-dec"></span>
+        <p>Che sia una cena fra amiche, un compleanno, un'inaugurazione<br>o un matrimonio... puoi portare un pizzico di magia donando<br>esperienze personalizzate o letture brevi ai tuoi ospiti!</p>
+        <p class="richiesta-cta"><button type="button" class="scrivimi-link" id="scrivimi-btn">Scrivimi</button> per creare insieme l'esperienza che desideri donare</p>
+        <div class="mail-box" id="mail-box">
+          <a href="mailto:chiara.pulin.90@gmail.com">chiara.pulin.90@gmail.com</a>
+          <button type="button" class="mail-copy" id="mail-copy-btn">Copia</button>
+        </div>
+      </div>
 
       <!-- Prossimi eventi -->
       <div class="section-header fade-in" style="text-align: left; margin-bottom: 1.5rem;">
@@ -289,5 +381,49 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Box "Il Tarocco al tuo evento": mostra la mail e permette di copiarla
+    (function () {
+      var scrivimi = document.getElementById('scrivimi-btn');
+      var mailBox  = document.getElementById('mail-box');
+      var copyBtn  = document.getElementById('mail-copy-btn');
+      if (!scrivimi || !mailBox || !copyBtn) return;
+
+      var mail = 'chiara.pulin.90@gmail.com';
+
+      scrivimi.addEventListener('click', function () {
+        mailBox.classList.add('open');
+        scrivimi.setAttribute('aria-expanded', 'true');
+      });
+
+      copyBtn.addEventListener('click', function () {
+        function esito(ok) {
+          copyBtn.textContent = ok ? 'Copiata!' : 'Selezionala e copiala';
+          setTimeout(function () { copyBtn.textContent = 'Copia'; }, 2500);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(mail).then(function () { esito(true); }, function () { fallback(); });
+        } else {
+          fallback();
+        }
+        function fallback() {
+          try {
+            var tmp = document.createElement('textarea');
+            tmp.value = mail;
+            tmp.setAttribute('readonly', '');
+            tmp.style.position = 'fixed';
+            tmp.style.opacity = '0';
+            document.body.appendChild(tmp);
+            tmp.select();
+            var ok = document.execCommand('copy');
+            document.body.removeChild(tmp);
+            esito(ok);
+          } catch (e) {
+            esito(false);
+          }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
