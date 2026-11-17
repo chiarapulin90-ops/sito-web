@@ -187,8 +187,10 @@
   }
 
   /* ---------- il libro delle poesie ----------
-     Ogni poesia occupa due facciate: il testo viene diviso fra pagina
-     sinistra e destra misurando quanto ne entra davvero nella pagina. */
+     Ogni poesia viene versata nelle facciate: si misura quanto testo
+     entra davvero in una pagina e si continua su quella dopo, finche'
+     la poesia non e' finita. Una poesia lunga occupa quindi piu' di
+     due facciate, e la successiva ricomincia sempre a sinistra. */
   var book = document.getElementById('book');
   if (book) {
     var poesie = Array.prototype.slice.call(book.querySelectorAll('.book-source > article'))
@@ -203,57 +205,88 @@
     var count  = book.querySelector('.book-count');
     var bPrev  = book.querySelector('.book-prev');
     var bNext  = book.querySelector('.book-next');
-    var i = 0, busy = false;
+    var i = 0, busy = false, aperture = [];
 
-    function componi(n) {
-      misura.innerHTML = '<h3>' + poesie[n].titolo + '</h3>' + poesie[n].html;
+    /* quanto entra in una facciata, e cosa avanza */
+    function versa(html, titolo) {
+      misura.innerHTML = (titolo ? '<h3>' + titolo + '</h3>' : '') + html;
       var wrap = misura.querySelector('.poem-text');
-      var resto = [], guardia = 0;
+      var fuori = [], guardia = 0;
       while (misura.scrollHeight > misura.clientHeight + 2 &&
-             wrap.children.length > 1 && guardia++ < 80) {
-        resto.unshift(wrap.lastElementChild.outerHTML);
+             wrap && wrap.children.length > 1 && guardia++ < 300) {
+        fuori.unshift(wrap.lastElementChild.outerHTML);
         wrap.removeChild(wrap.lastElementChild);
       }
       return {
-        sx: misura.innerHTML,
-        dx: resto.length ? '<div class="poem-text">' + resto.join('') + '</div>' : ''
+        dentro: misura.innerHTML,
+        fuori: fuori.length ? '<div class="poem-text">' + fuori.join('') + '</div>' : ''
       };
     }
 
+    /* costruisce l'elenco delle facciate e le accoppia in aperture */
+    function impagina() {
+      var facciate = [];
+      var unaSola = window.matchMedia('(max-width: 1080px)').matches;
+
+      poesie.forEach(function (poesia) {
+        var resto = poesia.html;
+        var primo = true;
+        var giri = 0;
+        while (resto && giri++ < 40) {
+          var r = versa(resto, primo ? poesia.titolo : '');
+          facciate.push(r.dentro);
+          if (r.fuori === resto) break;   /* non si riesce a spezzare oltre */
+          resto = r.fuori;
+          primo = false;
+        }
+        /* la poesia dopo ricomincia sempre dalla pagina di sinistra */
+        if (!unaSola && facciate.length % 2 === 1) facciate.push('');
+      });
+
+      aperture = [];
+      if (unaSola) {
+        facciate.forEach(function (f) { aperture.push([f, '']); });
+      } else {
+        for (var k = 0; k < facciate.length; k += 2) {
+          aperture.push([facciate[k], facciate[k + 1] || '']);
+        }
+      }
+      if (i >= aperture.length) i = aperture.length - 1;
+      if (i < 0) i = 0;
+    }
+
     function stato(n) {
-      count.textContent = (n + 1) + ' / ' + poesie.length;
+      count.textContent = (n + 1) + ' / ' + aperture.length;
       bPrev.disabled = (n === 0);
-      bNext.disabled = (n === poesie.length - 1);
+      bNext.disabled = (n === aperture.length - 1);
     }
 
     function mostra(n) {
-      var p = componi(n);
-      left.innerHTML = p.sx;
-      right.innerHTML = p.dx;
+      left.innerHTML  = aperture[n] ? aperture[n][0] : '';
+      right.innerHTML = aperture[n] ? aperture[n][1] : '';
       stato(n);
     }
 
     function sfoglia(dir) {
       var n = i + dir;
-      if (busy || n < 0 || n >= poesie.length) return;
+      if (busy || n < 0 || n >= aperture.length) return;
       busy = true;
-      var p = componi(n);
 
       if (dir > 0) {
         front.innerHTML = right.innerHTML;
-        back.innerHTML  = p.sx;
-        right.innerHTML = p.dx;
+        back.innerHTML  = aperture[n][0];
+        right.innerHTML = aperture[n][1];
         flip.classList.add('turning');
       } else {
-        front.innerHTML = p.dx;
+        front.innerHTML = aperture[n][1];
         back.innerHTML  = left.innerHTML;
-        left.innerHTML  = p.sx;
+        left.innerHTML  = aperture[n][0];
         flip.classList.add('turning-back');
       }
 
       setTimeout(function () {
-        if (dir > 0) left.innerHTML = p.sx;
-        else right.innerHTML = p.dx;
+        if (dir > 0) left.innerHTML = aperture[n][0];
+        else right.innerHTML = aperture[n][1];
       }, 470);
 
       setTimeout(function () {
@@ -267,14 +300,15 @@
     bPrev.addEventListener('click', function () { sfoglia(-1); });
     bNext.addEventListener('click', function () { sfoglia(1); });
 
+    impagina();
     mostra(0);
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(function () { mostra(i); });
+      document.fonts.ready.then(function () { impagina(); mostra(i); });
     }
     var tRid;
     window.addEventListener('resize', function () {
       clearTimeout(tRid);
-      tRid = setTimeout(function () { if (!busy) mostra(i); }, 250);
+      tRid = setTimeout(function () { if (!busy) { impagina(); mostra(i); } }, 250);
     });
   }
 
