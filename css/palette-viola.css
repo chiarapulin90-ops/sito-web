@@ -1,0 +1,173 @@
+/* ============================================================
+   VIOLA + ACQUERELLO
+   Impianto in viola: hero e barra del menu in melanzana pieno.
+   Tutti i fondi "parlanti" — frasi, box su richiesta, recensioni
+   e pagina Poesia — sono lo stesso acquerello contrastato,
+   virato sul viola per stare in famiglia.
+   Va caricata PER ULTIMA.
+   ============================================================ */
+:root {
+  --color-bg:         #F7F1F1;
+  --color-surface:    #EDE0E4;
+  --color-primary:    #7E3A64;
+  --color-secondary:  #6E2A52;
+  --color-accent:     #8C5572;
+  --color-text:       #2E1522;
+  --color-text-muted: #6B5560;
+  --color-border:     #DFCAD2;
+  --color-overlay:    transparent;
+  --color-hero-text:  #F3E6EA;
+
+  --titoli:       #9A5A80;
+  --scuro:        #3C0A24;
+  --bottone:      #7E3A64;
+  --viola-medio:  #6E2A52;
+  --lilla:        #C9A3BC;
+
+  /* ---- hero e barra: melanzana pieno con chiaroscuro ---- */
+  --mix:        overlay, normal, normal, normal;
+  --tex-size:   340px, cover, cover, cover;
+  --tex-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  --hero-gradient:
+    var(--grana),
+    radial-gradient(130% 95% at 20% 10%, rgba(255,255,255,0.13), rgba(255,255,255,0) 62%),
+    radial-gradient(115% 90% at 84% 92%, rgba(0,0,0,0.38), rgba(0,0,0,0) 68%),
+    linear-gradient(0deg, #3C0A24, #3C0A24);
+
+  /* ---- acquerello originale: frasi, box e recensioni ---- */
+  --banda-bg:
+    var(--grana),
+    radial-gradient(46% 70% at 50% 4%, rgba(255,244,210,0.95), rgba(255,244,210,0) 72%),
+    radial-gradient(60% 90% at 24% 70%, rgba(240,190,202,0.7), rgba(240,190,202,0) 74%),
+    radial-gradient(56% 86% at 78% 76%, rgba(246,211,186,0.62), rgba(246,211,186,0) 74%),
+    radial-gradient(50% 80% at 62% 18%, rgba(212,226,222,0.55), rgba(212,226,222,0) 76%),
+    radial-gradient(52% 84% at 10% 16%, rgba(214,204,230,0.5), rgba(214,204,230,0) 76%),
+    linear-gradient(0deg, #F9F3EB, #F9F3EB);
+  --banda-text: #40203A;
+  --banda-mix:        overlay, normal, normal, normal, normal, normal, normal;
+  --banda-tex-size:   320px, cover, cover, cover, cover, cover, cover;
+  --banda-tex-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+
+  /* ---- la pagina Poesia tiene l'acquerello virato viola ---- */
+  --poesia-text: #40203A;
+  --poesia-mix:        overlay, normal, normal, normal, normal, normal, normal, normal;
+  --poesia-tex-size:   320px, cover, cover, cover, cover, cover, cover, cover;
+  --poesia-tex-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  --poesia-bg:
+    var(--grana),
+    radial-gradient(38% 30% at 50% 4%, rgba(255,241,206,0.95), rgba(255,241,206,0) 70%),
+    radial-gradient(58% 48% at 18% 22%, rgba(232,166,198,0.95), rgba(232,166,198,0) 72%),
+    radial-gradient(54% 44% at 84% 30%, rgba(238,188,176,0.88), rgba(238,188,176,0) 72%),
+    radial-gradient(60% 50% at 72% 88%, rgba(182,206,200,0.7), rgba(182,206,200,0) 74%),
+    radial-gradient(60% 50% at 10% 90%, rgba(188,168,218,0.95), rgba(188,168,218,0) 74%),
+    radial-gradient(78% 60% at 50% 58%, rgba(124,62,100,0.38), rgba(124,62,100,0) 72%),
+    linear-gradient(0deg, #F7EDEB, #F7EDEB);
+
+  --color-btn-hover:  #5E2A4A;
+  --color-gold:       #7C3E64;
+}
+
+/* le bande hanno otto strati: servono le stesse liste */
+.dark-quote,
+.evento-richiesta,
+.mail-pop-card,
+.banda,
+.recensioni .testimonial-card {
+  background-blend-mode: var(--banda-mix);
+  background-size: var(--banda-tex-size);
+  background-repeat: var(--banda-tex-repeat);
+}
+
+/* ---------- titoli ---------- */
+h1, h2, .footer-name, .hero-side h1, .page-head h1, .poesia-head h1 {
+  font-family: 'Italianno', 'Playfair Display', cursive;
+  font-style: normal !important;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+}
+.hero-side h1 { font-size: clamp(3rem, 6.2vw, 5.4rem); line-height: 1.1; }
+.page-head h1 { font-size: clamp(2.5rem, 5.4vw, 4.2rem); line-height: 1.15; }
+.poesia-head h1 { font-size: clamp(2.2rem, 5vh, 3.6rem); }
+h2 { font-size: clamp(2.3rem, 5vw, 3.5rem); line-height: 1.2; }
+.evento-richiesta h2 { font-size: clamp(2.1rem, 4.2vw, 2.9rem); }
+.about-text h2 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); }
+.percorsi-intro h2 { margin-bottom: 0.2rem; }
+.footer-name { font-size: 2.4rem; }
+
+.page-head h1,
+.page .section h2,
+.percorsi-intro h2,
+.about-text h2,
+.service-detail h2,
+.percorso-card h3,
+.book-page h3,
+.flip-face h3,
+.poesia-news h3,
+.footer-name,
+.footer-email { color: var(--titoli); }
+.page .label,
+.percorso-card .label,
+.event-info .label,
+.recensioni .label,
+.poesia-news .label { color: var(--viola-medio); opacity: 1; }
+.page .line-dec,
+.percorsi-intro .line-dec,
+.poesia-news .line-dec { background: var(--viola-medio); opacity: 0.6; }
+.footer-email:hover { color: var(--color-accent); }
+
+/* ---------- bottoni ---------- */
+.btn { color: var(--bottone) !important; border-color: var(--bottone) !important; }
+.btn-filled { background: var(--bottone) !important; color: var(--color-bg) !important; }
+.btn:hover { background: var(--bottone) !important; color: var(--color-bg) !important; }
+.btn-filled:hover { background: var(--color-btn-hover) !important; border-color: var(--color-btn-hover) !important; }
+
+/* ---------- barra del menu ---------- */
+.nav-links a:hover { color: var(--lilla); opacity: 1; }
+.nav.scrolled { background-color: var(--scuro); box-shadow: 0 1px 0 rgba(0,0,0,0.12); }
+.nav.scrolled .nav-links a,
+.nav.scrolled .nav-icon-link,
+.nav.scrolled .nav-close { color: var(--color-hero-text); opacity: 0.88; }
+.nav.scrolled .nav-links a:hover,
+.nav.scrolled .nav-icon-link:hover,
+.nav.scrolled .nav-close:hover { color: var(--lilla); opacity: 1; }
+.nav.scrolled .nav-links a.is-active { color: var(--lilla); opacity: 1; }
+.nav.scrolled .nav-toggle span { background: var(--color-hero-text); }
+
+/* ---------- dettagli sulle bande chiare ---------- */
+.evento-richiesta { border-color: rgba(124, 62, 100, 0.4); }
+.evento-richiesta::before { opacity: 0.16; }
+.evento-richiesta .label,
+.mail-pop-card .label { color: var(--viola-medio); opacity: 1; }
+.evento-richiesta .line-dec { background: var(--viola-medio); opacity: 0.6; }
+.evento-richiesta p,
+.evento-richiesta .richiesta-cta { opacity: 1; }
+.scrivimi-link { color: var(--viola-medio); border-bottom-color: currentColor; }
+.scrivimi-link:hover { color: var(--scuro); }
+.mail-copy { color: var(--viola-medio); }
+.mail-copy:hover { background: var(--viola-medio); color: #F7EDEB; }
+.mail-pop-card { border-color: rgba(124, 62, 100, 0.4); }
+.mail-pop-card::before { opacity: 0.16; }
+.mail-pop-backdrop { background: rgba(46, 21, 34, 0.45); }
+
+/* ---------- recensioni sull'acquerello ---------- */
+.recensioni .testimonial-card {
+  background: var(--banda-bg);
+  border-color: rgba(124, 62, 100, 0.28);
+  color: var(--banda-text);
+}
+.recensioni .testimonial-card p { color: var(--banda-text); }
+.recensioni .testimonial-card::before { color: var(--viola-medio); opacity: 0.45; }
+.recensioni .testimonial-initial { color: var(--viola-medio); }
+
+/* ---------- poesia ---------- */
+.page-screen .home-foot { border-top-color: rgba(64, 32, 58, 0.2); }
+.page-screen .home-foot span { opacity: 0.55; }
+.page-screen .book-spread { box-shadow: 0 16px 44px rgba(64, 32, 58, 0.22); }
+.page-screen .poesia-news { box-shadow: 0 10px 30px rgba(64, 32, 58, 0.14); }
+.page-screen .book-nav .carousel-btn { background: var(--color-bg); }
+.page-screen .nav.scrolled { background-color: var(--scuro); }
+
+/* ---------- hero: resta melanzana ---------- */
+.hero-divider { background: linear-gradient(to bottom, transparent, rgba(243,230,234,0.3), transparent); }
+.home-foot { border-top-color: rgba(243,230,234,0.16); }
+.hero-side .hl { color: var(--lilla); }

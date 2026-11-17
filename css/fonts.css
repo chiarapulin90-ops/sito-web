@@ -1,0 +1,23 @@
+﻿/* ============================================================
+   CARATTERI LOCALI
+   Scaricati dentro al progetto: il sito li mostra anche senza
+   connessione, senza dipendere da Google Fonts.
+   ============================================================ */
+@font-face { font-family: 'Italianno'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/italianno.woff2') format('woff2'); }
+@font-face { font-family: 'Pinyon Script'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/pinyon.woff2') format('woff2'); }
+@font-face { font-family: 'Allura'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/allura.woff2') format('woff2'); }
+@font-face { font-family: 'Parisienne'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/parisienne.woff2') format('woff2'); }
+@font-face { font-family: 'Petit Formal Script'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/petitformal.woff2') format('woff2'); }
+@font-face { font-family: 'Mrs Saint Delafield'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/mrssaint.woff2') format('woff2'); }
+@font-face { font-family: 'Tangerine'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/tangerine700.woff2') format('woff2'); }
+@font-face { font-family: 'Gwendolyn'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/gwendolyn700.woff2') format('woff2'); }
+@font-face { font-family: 'Sacramento'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/sacramento.woff2') format('woff2'); }
+@font-face { font-family: 'Imperial Script'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/imperial.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300; font-display: swap; src: url('../fonts/cormorant300.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/cormorant400.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/cormorant500.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 300; font-display: swap; src: url('../fonts/cormorant300i.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('../fonts/cormorant400i.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/playfair400.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/playfair500.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap; src: url('../fonts/playfair400i.woff2') format('woff2'); }

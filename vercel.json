@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/servizi.html", "destination": "/#cosa-offro", "permanent": true },
+    { "source": "/eventi.html", "destination": "/#eventi", "permanent": true },
+    { "source": "/poesia.html", "destination": "/#poesia", "permanent": true }
+  ]
+}

@@ -3,112 +3,106 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chiara Pulin</title>
+  <title>Chiara Pulin — Tarocco, Lavoro su di sé e Poesia</title>
+
+  <meta name="description" content="Letture e percorsi individuali con il Tarocco di Marsiglia, workshop ed eventi dal vivo, poesia. Chiara Pulin, alchimista poetica.">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/theme-terra.css">
   <link rel="stylesheet" href="css/base.css">
-  <script defer src="/_vercel/insights/script.js"></script>
+  <link rel="stylesheet" href="css/restyling.css">
+
   <style>
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    /* fade-in */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.8s ease, transform 0.8s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
 
-    /* Hero */
-    .hero-rule {
-      display: flex; align-items: center; gap: 1rem; justify-content: center; margin: 0.8rem 0;
-    }
-    .hero-rule span { display: block; width: 55px; height: 1px; background: var(--color-hero-text); opacity: 0.38; }
-    .hero-rule em {
-      font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem;
-      letter-spacing: 0.25em; text-transform: uppercase; color: var(--color-hero-text); opacity: 0.75;
-    }
-    .hero h1 { font-size: clamp(2.4rem, 5vw, 5rem); font-style: italic; }
-    .hero-logo-img { display: block; margin: 0 auto 1.8rem; filter: brightness(1.6) saturate(0.7); }
+    /* ===== VERSIONE 1: voci di menu sempre visibili in alto ===== */
 
-    /* Chi sono — due foto sfalsate */
+    /* ===== stili ereditati dalle pagine attuali ===== */
+    .service-meta { display: flex; gap: 2rem; margin: 1.2rem 0 0.5rem; flex-wrap: wrap; align-items: flex-start; }
+    .meta-item { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-text-muted); }
+    .meta-item strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--color-primary); font-weight: 400; font-style: italic; letter-spacing: 0; text-transform: none; margin-bottom: 0.2rem; }
+    .payment-note { font-size: 0.88rem; color: var(--color-text-muted); font-style: italic; margin: 0; }
+    .service-block { padding: 0.6rem 0; gap: 2.6rem; }
+    .service-detail p { margin-bottom: 0.75rem; }
+    .service-detail h2 { margin-bottom: 0.2rem; }
+    .service-detail .line-dec { margin: 0.8rem 0; }
+
+    .percorsi-section { padding: 2.2rem 0 2.6rem !important; }
+    .percorsi-intro { max-width: 620px; margin: 0 auto 1.8rem; text-align: center; }
+    .percorsi-intro h2 { font-style: italic; margin-bottom: 0; }
+    .percorsi-intro .line-dec { margin: 1rem auto 0; }
+    .percorsi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+    .percorso-card { padding: 2rem 1.8rem; border: 1px solid var(--color-border); background: var(--color-bg); display: flex; flex-direction: column; }
+    .percorso-card .label { margin-bottom: 0.6rem; }
+    .percorso-card h3 { font-style: italic; margin-bottom: 0.8rem; font-size: 1.3rem; }
+    .percorso-card p { font-size: 1rem; color: var(--color-text-muted); flex: 1; line-height: 1.65; margin-bottom: 1.2rem; text-align: justify; }
+    .percorso-meta { border-top: 1px solid var(--color-border); padding-top: 1rem; margin-top: auto; display: flex; flex-direction: column; gap: 0.35rem; }
+    .percorso-meta span { font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text-muted); }
+    .percorso-meta strong { color: var(--color-primary); font-family: 'Playfair Display', serif; font-weight: 400; font-style: italic; font-size: 1rem; letter-spacing: 0; text-transform: none; }
+    .percorso-photo { overflow: hidden; border: 1px solid var(--color-border); aspect-ratio: 4 / 5; align-self: center; }
+    .percorso-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .dark-quote { background: var(--banda-bg, var(--hero-gradient)); padding: 1.3rem 2rem; text-align: center; }
+    .dark-quote blockquote { font-size: clamp(1.05rem, 1.9vw, 1.35rem); line-height: 1.65; color: var(--banda-text, var(--color-hero-text)); }
+    .dark-quote.page-nohead { padding-top: 6.2rem; }
+    .dark-quote blockquote { max-width: 700px; margin: 0 auto; font-size: clamp(1.1rem, 2.1vw, 1.5rem); font-style: italic; line-height: 1.7; color: var(--banda-text, var(--color-hero-text)); }
+
+    .events-section { padding: 2.6rem 0 4rem; }
+    .intro-flow { max-width: 760px; margin: 0 auto; text-align: center; color: var(--color-text-muted); font-size: 1.08rem; line-height: 1.9; }
+    .event-card.past { opacity: 0.5; }
+    .event-card.past .event-date .day { color: var(--color-text-muted); }
+    .events-divider { text-align: center; margin: 2.6rem 0; position: relative; }
+    .events-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--color-border); }
+    .events-divider span { position: relative; background: var(--color-bg); padding: 0 1.5rem; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-text-muted); }
+    .evento-richiesta { position: relative; background: var(--banda-bg, var(--hero-gradient)); border: 1px solid var(--color-primary); padding: 2.6rem 2.2rem; text-align: center; }
+    .evento-richiesta::before { content: ''; position: absolute; inset: 9px; border: 1px solid currentColor; opacity: 0.22; pointer-events: none; }
+    .evento-richiesta > * { position: relative; }
+    .evento-richiesta .label { color: var(--color-gold, #E6BC82); font-size: 0.92rem; letter-spacing: 0.24em; margin-bottom: 0.9rem; }
+    .evento-richiesta h2 { font-style: italic; color: var(--banda-text, var(--color-hero-text)); font-size: clamp(1.5rem, 3.2vw, 2.1rem); line-height: 1.25; }
+    .evento-richiesta .line-dec { background: rgba(230, 188, 130, 0.75); margin: 1.2rem auto; }
+    .evento-richiesta p { color: var(--banda-text, var(--color-hero-text)); opacity: 0.9; font-size: 1.08rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+    .evento-richiesta .richiesta-cta { margin-top: 1.2rem; font-style: italic; color: var(--banda-text, var(--color-hero-text)); opacity: 1; }
+    .scrivimi-link { font: inherit; background: none; border: none; padding: 0; cursor: pointer; color: var(--color-gold, #E6BC82); border-bottom: 1px solid rgba(230, 188, 130, 0.6); transition: color 0.2s, border-color 0.2s; }
+    .scrivimi-link:hover { color: #F5EDD8; border-bottom-color: #F5EDD8; }
+    .mail-box { display: none; justify-content: center; align-items: center; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.2rem; }
+    .mail-box.open { display: flex; }
+    .mail-box a { font-size: 1.05rem; color: var(--banda-text, var(--color-hero-text)); letter-spacing: 0.02em; border-bottom: 1px solid currentColor; }
+    .mail-copy { font-family: 'Cormorant Garamond', serif; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--banda-text, var(--color-hero-text)); background: none; border: 1px solid currentColor; padding: 0.4rem 0.9rem; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .mail-copy:hover { background: rgba(245, 237, 216, 0.92); color: #3D1F0A; }
+
+    .poem-text { font-style: italic; color: var(--color-text-muted); font-size: 1.05rem; line-height: 1.95; }
+    .poem-text p { margin-bottom: 1.3em; }
+    .poem-text p:last-child { margin-bottom: 0; }
+    .substack-block { padding: 1.7rem 2rem 1.9rem; margin-top: 0; }
+    .substack-block h3 { margin-bottom: 0.4rem; }
+    .substack-block .line-dec { margin: 0.9rem auto; }
+    .substack-block p { margin-bottom: 1.2rem; }
+    .poem-intro-quote { max-width: 600px; margin: 0 auto; text-align: center; }
+    .poem-intro-quote blockquote { font-size: 1.15rem; font-style: italic; line-height: 1.7; color: var(--color-text-muted); }
+    .poem-intro-quote cite { display: block; margin-top: 1rem; font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-primary); font-style: normal; }
+
     .about-text p { text-align: justify; }
-    .about-duo { display: flex; flex-direction: column; align-self: center; max-width: 220px; }
-    .about-duo img:first-child {
-      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block;
-    }
-    .about-duo img:last-child {
-      width: 86%; aspect-ratio: 3/4; object-fit: cover; object-position: top; display: block;
-      align-self: flex-end; margin-top: -2.5rem; margin-right: -2rem;
-      position: relative; z-index: 1; box-shadow: -5px 5px 16px rgba(0,0,0,0.14);
-    }
-
-    /* 2 card centrate senza pulsanti */
-    .services-grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-    .services-grid-2 .service-card .btn { display: none; }
-    .services-grid-2 .service-card p { margin-bottom: 0; }
-
-    /* Carosello testimonianze */
-    .testimonials-carousel {
-      display: flex;
-      align-items: center;
-      gap: 1.2rem;
-    }
-    .carousel-window { overflow: hidden; flex: 1; }
-    .carousel-slide {
-      display: none;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    .carousel-slide.active {
-      display: grid;
-      animation: fadeSlide 0.45s ease;
-    }
-    .carousel-slide.single-card { display: none; justify-content: center; }
-    .carousel-slide.single-card.active { display: flex; }
-    .carousel-slide.single-card .testimonial-card { flex: 0 0 calc(50% - 0.75rem); }
-    @keyframes fadeSlide {
-      from { opacity: 0; transform: translateY(6px); }
-      to   { opacity: 1; transform: none; }
-    }
-    .carousel-btn {
-      background: none;
-      border: 1px solid var(--color-border);
-      color: var(--color-text-muted);
-      width: 42px; height: 42px;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: color 0.2s, border-color 0.2s;
-      flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .carousel-btn:hover { color: var(--color-primary); border-color: var(--color-primary); }
-    .testimonials-carousel .testimonial-card { min-height: 210px; }
-    .testimonials-carousel .testimonial-card p { text-align: justify; }
-    .testimonial-initial {
-      text-align: right;
-      font-size: 0.8rem;
-      color: var(--color-primary);
-      letter-spacing: 0.15em;
-      margin-top: auto;
-      padding-top: 0.8rem;
-    }
 
     @media (max-width: 900px) {
-      .about-duo { max-width: 160px; margin: 0 auto; }
-      .services-grid-2 { grid-template-columns: 1fr; max-width: 480px; }
-      .carousel-slide { grid-template-columns: 1fr; }
-      .carousel-slide.single-card .testimonial-card { flex: 0 0 100%; }
+      .percorsi-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .percorso-photo { aspect-ratio: 4/3; }
     }
-    @media (max-width: 600px) {
-      .testimonials-carousel { gap: 0.5rem; }
-      .carousel-btn { width: 34px; height: 34px; font-size: 0.9rem; }
+    @media (max-width: 768px) {
+      .evento-richiesta { padding: 2.2rem 1.4rem; }
+      .evento-richiesta p { font-size: 1.02rem; }
+      .evento-richiesta p br { display: none; }
+      .intro-flow br { display: none; }
+      .dark-quote br { display: none; }
     }
   </style>
+  <link rel="stylesheet" href="css/palette-viola.css">
 </head>
 <body>
 
+  <!-- ==================== NAV ==================== -->
   <nav class="nav" id="nav">
     <div class="nav-brand">
-      <div class="nav-logo nav-logo-light">Chiara Pulin</div>
       <div class="nav-social-icons">
         <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="nav-icon-link" aria-label="Substack">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 6H2v2.5h20V6zm0 5.3H2V14h20v-2.7zM2 16.6v6.4l10-5 10 5v-6.4H2z"/></svg>
@@ -118,202 +112,580 @@
         </a>
       </div>
     </div>
+
     <ul class="nav-links">
+      <li><a href="#cosa-offro">Cosa offro</a></li>
+      <li><a href="#eventi">Eventi</a></li>
+      <li><a href="#poesia">Poesia</a></li>
       <li><a href="#chi-sono">Chi sono</a></li>
-      <li><a href="servizi.html">Cosa offro</a></li>
-      <li><a href="poesia.html">Poesia</a></li>
-      <li><a href="eventi.html">Eventi</a></li>
     </ul>
+
+    <button class="nav-close" type="button" aria-label="Torna alla home">home <span class="x">&times;</span></button>
+
     <button class="nav-toggle" aria-label="Apri menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <img src="logo-alt.svg" alt="Chiara Pulin" class="hero-logo-img" width="90" height="103">
-      <div class="hero-rule">
-        <span></span>
-        <em>Esploratrice dell'essere</em>
-        <span></span>
+  <!-- ==================== HOME — solo hero, nessuno scorrimento ==================== -->
+  <main class="home" id="home-screen">
+    <div class="home-inner">
+
+      <img src="logo-alt.svg" alt="Chiara Pulin" class="home-logo" width="104" height="119">
+
+      <div class="hero-grid">
+
+        <!-- metà sinistra -->
+        <section class="hero-side hero-left">
+          <div class="hero-rule hero-eyebrow">
+            <span></span><em>Alchimista poetica</em><span></span>
+          </div>
+          <h1>Chiara Pulin</h1>
+          <div class="hero-rule hero-eyebrow long">
+            <span></span><em>lavoro su di s&eacute; &middot; tarocco &middot; poesia</em><span></span>
+          </div>
+          <p class="hero-phrase">
+            Esplora l'<span class="hl">invisibile<svg class="scribble" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M18 13 C 46 2 118 1 145 11 C 158 16 156 31 132 38 C 104 46 38 47 15 37 C 2 31 3 16 26 8"/></svg></span><br>per renderlo <span class="hl">tangibile<svg class="scribble" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M20 12 C 50 3 120 2 146 12 C 157 17 153 32 128 39 C 98 47 34 46 13 35 C 3 29 6 15 28 7"/></svg></span>.
+          </p>
+        </section>
+
+        <div class="hero-divider" aria-hidden="true"></div>
+
+        <!-- metà destra -->
+        <section class="hero-side hero-right">
+
+
+          <p class="hero-claim">
+            Il Tarocco pu&ograve; insegnarti a vivere il presente<br>
+            con <span class="hl">occhi nuovi<svg class="scribble" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M16 14 C 44 3 116 2 144 12 C 157 17 155 32 131 39 C 103 47 37 48 14 38 C 2 32 4 17 24 9"/></svg></span> e a scoprire e manifestare<br>
+            la <span class="hl">tua verit&agrave;<svg class="scribble" viewBox="0 0 160 48" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M19 13 C 48 2 118 3 145 13 C 156 18 152 33 127 40 C 97 48 33 47 12 36 C 2 30 7 16 27 8"/></svg></span> pi&ugrave; profonda.
+          </p>
+          <div class="hero-photo-wrap">
+            <!-- foto provvisoria: sostituire con quella che mi darai -->
+            <figure class="hero-photo">
+              <img src="sito3.jpg" alt="Chiara Pulin">
+            </figure>
+          </div>
+        </section>
+
       </div>
-      <h1>Chiara Pulin</h1>
-      <div class="hero-rule">
-        <span></span>
-        <em>lavoro su di sè · tarocco · poesia</em>
-        <span></span>
-      </div>
-      <p class="tagline" style="margin-top: 1.2rem; color: var(--color-hero-text);">
-        Ricordati chi sei e manifesta con coraggio la tua verità.<br>Al di là del caos c'è la pace del tuo cuore, ci sei tu.
-      </p>
+
+      <div class="hero-dots" aria-hidden="true"><span class="on"></span><span></span></div>
+
     </div>
-    <div class="hero-scroll">scorri</div>
+
+    <div class="home-foot">
+      <a href="mailto:chiara.pulin.90@gmail.com">chiara.pulin.90@gmail.com</a>
+      <span>&copy; 2025 Chiara Pulin</span>
+    </div>
+  </main>
+
+  <!-- ==================== COSA OFFRO ==================== -->
+  <section class="page" id="cosa-offro">
+
+    <div class="dark-quote page-nohead">
+      <blockquote>
+        Non devi farcela da sola.<br>
+        Posso affiancarti in questo cammino,<br>
+        con percorsi costruiti sui tuoi bisogni pi&ugrave; profondi,<br>
+        dove il Tarot sar&agrave; la mappa per ritrovare chiarezza, direzione e pace.
+      </blockquote>
+    </div>
+
+    <section class="section" style="padding: 2rem 0;">
+      <div class="container">
+        <div class="service-block fade-in">
+          <div class="service-visual" style="align-self: center;"><img src="SERVIZI1.jpg" alt="Lettura con il Tarocco"></div>
+          <div class="service-detail">
+            <h2>Lettura singola<br>con il Tarocco di Marsiglia</h2>
+            <span class="line-dec line-dec-left"></span>
+            <p>Una sessione individuale per fare chiarezza e ritrovare serenit&agrave;. Se porterai con te il suo consiglio, il Tarocco diventa alleato nel Lavoro su di s&eacute;, bussola nella trasformazione interiore e mappa nella tua vita quotidiana.</p>
+            <p>Ci prenderemo il tempo che serve. Per esperienza varia fra i 40 minuti e 1 ora e mezza.</p>
+            <p>Ti ascolter&ograve;, costruiremo insieme la tua domanda e tradurremo il messaggio delle carte, perch&eacute; possa diventare una risorsa nella tua vita quotidiana.</p>
+            <p>Grazie anche ad un &laquo;bignami della stesa&raquo; che ti invier&ograve; al termine della consulenza, il Tarocco sar&agrave; strumento di lavoro su di s&eacute;. Ti fornir&agrave; chiavi di volta e strumenti indispensabili a riprenderti la responsabilit&agrave; della tua vita e tornare alla gioia del cuore.</p>
+
+            <div class="service-meta">
+              <div class="meta-item"><strong>80 euro</strong>Costo</div>
+              <div class="meta-item"><strong>Online</strong>Modalit&agrave;</div>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <button type="button" class="btn btn-filled mail-trigger" style="margin-top: 0; align-self: flex-start;">Contattami</button>
+                <p class="payment-note">Il pagamento (PayPal o IBAN) avviene a lettura avvenuta.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt percorsi-section">
+      <div class="container">
+        <div class="percorsi-intro fade-in">
+          <h2>Percorsi individuali</h2>
+          <span class="line-dec"></span>
+        </div>
+
+        <div class="percorsi-grid">
+          <div class="percorso-card fade-in">
+            <span class="label">12 mesi</span>
+            <h3>Taroccolento</h3>
+            <p>Un lavoro profondo attraverso la stesa dell'anno, che invita alla convivenza con un arcano al mese. Un accompagnamento lento per imparare a riconoscere le energie del Tarot dentro di te e nella vita, usandolo come specchio e mappa. Dispense ed esercizi ad ogni incontro.</p>
+            <div class="percorso-meta">
+              <span>Struttura: <strong>1 incontro al mese</strong></span>
+              <span>Costo: <strong>100 euro / mese</strong></span>
+              <span>Modalit&agrave;: <strong>Online</strong></span>
+            </div>
+          </div>
+
+          <div class="percorso-photo fade-in">
+            <img src="sito4.jpg" alt="Chiara Pulin">
+          </div>
+
+          <div class="percorso-card fade-in">
+            <span class="label">Mensile &middot; flessibile</span>
+            <h3>Convivenza</h3>
+            <p>Un mese di convivenza per arcano, quando vorrai, anche non consecutivo, anche un solo mese. Pescato o scelto con criterio. Esercizi e stese per risvegliare la sua energia dentro di te, integrare i suoi insegnamenti e imparare a riconoscerlo nella vita quotidiana. Dispense ed esercizi.</p>
+            <div class="percorso-meta">
+              <span>Struttura: <strong>2 incontri al mese</strong></span>
+              <span>Costo: <strong>100 euro / mese</strong></span>
+              <span>Modalit&agrave;: <strong>Online</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.8rem;" class="fade-in">
+          <button type="button" class="btn btn-filled mail-trigger">Contattami</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="recensioni fade-in">
+          <span class="label">Le vostre parole</span>
+          <div class="rec-carousel">
+            <button class="carousel-btn rec-prev" type="button" aria-label="Precedente">&#8592;</button>
+            <div class="rec-window">
+
+              <div class="rec-slide active">
+                <div class="testimonial-card">
+                  <p>Ieri &egrave; stato davvero potente. Ho elaborato nelle ore successive quanto mi ci rivedo in quello che &egrave; venuto fuori, incredibilmente tanto. Accolgo questa dolce osservazione di me stessa.</p>
+                  <div class="testimonial-initial">J.</div>
+                </div>
+                <div class="testimonial-card">
+                  <p>Ti volevo ringraziare in particolare per la cura con la quale ti sei occupata di me, ci ho fatto caso perch&eacute; non &egrave; una cosa banale.</p>
+                  <div class="testimonial-initial">L.</div>
+                </div>
+              </div>
+
+              <div class="rec-slide">
+                <div class="testimonial-card">
+                  <p>Ciao Chiara, ti ringrazio di cuore per la lettura e le tue parole sono state come una carezza al cuore, ho sentito profondit&agrave; e mi &egrave; piaciuto molto. Grazie ancora, un abbraccio.</p>
+                  <div class="testimonial-initial">B.</div>
+                </div>
+                <div class="testimonial-card">
+                  <p>Grazie per il lavoro fatto con il Cuore. L'ho percepito tanto.</p>
+                  <div class="testimonial-initial">A.</div>
+                </div>
+              </div>
+
+            </div>
+            <button class="carousel-btn rec-next" type="button" aria-label="Successivo">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-name">
+        Chiara Pulin
+        <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cosa-offro">Cosa offro</a></li>
+        <li><a href="#eventi">Eventi</a></li>
+        <li><a href="#poesia">Poesia</a></li>
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
+        <li><a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Chiara Pulin &mdash; Tutti i diritti riservati</p>
+    </footer>
   </section>
 
-  <!-- Come posso accompagnarti — 2 card, nessun pulsante individuale, CTA unico -->
-  <section class="section section-alt" style="padding: 3.5rem 0;">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2>Come posso accompagnarti</h2>
+  <!-- ==================== WORKSHOP ED EVENTI ==================== -->
+  <section class="page" id="eventi">
+    <div class="page-head">
+      <h1>Workshop ed Eventi</h1>
+      <span class="line-dec"></span>
+    </div>
+
+    <section class="events-section">
+      <div class="container">
+
+        <div class="richiesta-row fade-in">
+          <div class="richiesta-photos">
+            <figure class="ph-a"><img src="evento1.jpg" alt="Letture di Tarocco durante un evento"></figure>
+            <figure class="ph-b"><img src="evento2.jpg" alt="Lettura di Tarocco sotto l'ulivo"></figure>
+          </div>
+
+          <div class="evento-richiesta">
+            <span class="label">Su richiesta</span>
+            <h2>Il Tarocco al tuo evento</h2>
+            <span class="line-dec"></span>
+            <p>Che sia <strong>una cena fra amiche</strong>, <strong>un compleanno</strong>, <strong>un'inaugurazione</strong><br>o <strong>un matrimonio</strong>... puoi portare un pizzico di magia donando<br>esperienze personalizzate o letture brevi ai tuoi ospiti!</p>
+            <p class="richiesta-cta"><button type="button" class="scrivimi-link" id="scrivimi-btn">Scrivimi</button> per creare insieme l'esperienza che desideri donare</p>
+            <div class="mail-box" id="mail-box">
+              <a href="mailto:chiara.pulin.90@gmail.com">chiara.pulin.90@gmail.com</a>
+              <button type="button" class="mail-copy" data-copy>Copia</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-header fade-in" style="text-align: left; margin: 2.5rem 0 1.2rem;">
+          <span class="label">In programma</span>
+        </div>
+
+        <div class="events-list fade-in" id="eventi-futuri">
+
+          <div class="event-card" data-fine="2027-04-04">
+            <div class="event-date date-multi">
+              <div class="day">17/01/27</div>
+              <div class="day">06/03/27</div>
+              <div class="day">04/04/27</div>
+            </div>
+            <div class="event-info">
+              <span class="label">Quattro Elementi, Quattro Incontri</span>
+              <h3>Sound Liberation &amp; Tarocco Intuitivo</h3>
+              <p>Un viaggio dentro di te, attraverso i 4 elementi.</p>
+              <p style="margin-top: 0.5rem;">Thiene (VI) &amp; San Bonifacio (VR) &mdash; con <a href="https://www.instagram.com/raffaello_cavaggioni/" target="_blank" style="color: var(--color-primary);">Raffaello Cavaggioni</a></p>
+              <p style="margin-top: 0.5rem; font-size: 1.05rem;">Per info e iscrizioni <a href="https://sound-liberation-tarocco.vercel.app/" target="_blank" style="color: var(--color-primary); border-bottom: 1px solid var(--color-border);">clicca qui</a>.</p>
+            </div>
+          </div>
+
+          <div class="event-card" data-fine="2026-11-15">
+            <div class="event-date"><div class="day">15</div><div class="month">Nov 2026</div></div>
+            <div class="event-info">
+              <span class="label">Evento</span>
+              <h3>Market in Fattoria Koin&egrave;</h3>
+              <p>Presso <a href="https://www.instagram.com/fattoria_koine/" target="_blank" style="color: var(--color-primary);">Fattoria Koin&egrave;</a></p>
+              <p style="margin-top: 0.5rem; font-size: 0.95rem;">Letture brevi e presentazione dei percorsi ed eventi.</p>
+            </div>
+          </div>
+
+          <div class="event-card" data-fine="2026-11-20">
+            <!-- foto che sborda sulla destra, all'altezza della seconda box -->
+            <figure class="evento-foto-dx"><img src="SERVIZI2.jpg" alt="Workshop ed eventi"></figure>
+            <div class="event-date"><div class="day">20</div><div class="month">Nov 2026</div></div>
+            <div class="event-info">
+              <span class="label">Laboratorio di Tarocco</span>
+              <h3>Aperitivo e Tarocco</h3>
+              <p>Presso la IAD di <a href="https://www.instagram.com/allymentazione/" target="_blank" style="color: var(--color-primary);">Alice</a> &mdash; ore 19 &ndash; 22</p>
+              <p style="margin-top: 0.5rem; font-size: 0.95rem;">Per info e iscrizioni <a href="https://www.instagram.com/p/DfnDEXmCqFQ/?img_index=1" target="_blank" style="color: var(--color-primary); border-bottom: 1px solid var(--color-border);">clicca qui</a>.</p>
+            </div>
+          </div>
+
+          <div class="event-card" data-fine="2026-12-05">
+            <div class="event-date"><div class="day">5</div><div class="month">Dic 2026</div></div>
+            <div class="event-info">
+              <span class="label">Esplorarsi attraverso la voce e il tarocco</span>
+              <h3>Il Canto del Tarot</h3>
+              <p>Presso Fattoria Koin&egrave; &mdash; con <a href="https://www.instagram.com/jolandamoletta/" target="_blank" style="color: var(--color-primary);">Jolanda Moletta</a></p>
+              <p style="margin-top: 0.5rem; font-size: 1.05rem;">Per info e iscrizioni <a href="https://il-canto-del-tarot.vercel.app/?invito" target="_blank" style="color: var(--color-primary); border-bottom: 1px solid var(--color-border);">clicca qui</a>.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="events-divider fade-in"><span>eventi passati</span></div>
+
+        <div class="events-list fade-in" id="eventi-passati">
+          <div class="event-card past">
+            <div class="event-date"><div class="day">26&ndash;28</div><div class="month">Ago 2026</div></div>
+            <div class="event-info">
+              <span class="label">Evento</span>
+              <h3><a href="https://www.instagram.com/ferrarabuskersfestival/" target="_blank" style="color: inherit;">Ferrara Buskers Festival</a></h3>
+              <p>Ferrara</p>
+              <p style="margin-top: 0.5rem; font-size: 0.95rem;">Letture di Tarocco di Marsiglia.</p>
+            </div>
+          </div>
+          <div class="event-card past">
+            <div class="event-date"><div class="day">10</div><div class="month">Ago 2026</div></div>
+            <div class="event-info">
+              <span class="label">Evento</span>
+              <h3>La Notte delle Stelle di San Lorenzo</h3>
+              <p>Abano Terme (PD) &mdash; presso <a href="https://www.instagram.com/alimentarimarsiglio/" target="_blank" style="color: var(--color-primary);">@alimentarimarsiglio</a></p>
+              <p style="margin-top: 0.5rem; font-size: 0.95rem;">Letture brevi di Tarocco.</p>
+            </div>
+          </div>
+          <div class="event-card past">
+            <div class="event-date"><div class="day">28</div><div class="month">Giu 2026</div></div>
+            <div class="event-info">
+              <span class="label">Workshop &middot; Tarocco &amp; Teatro</span>
+              <h3>TaroTeatro</h3>
+              <p>Spazio Kiros, Abano Terme (PD) &mdash; con <a href="https://www.instagram.com/follucida/" target="_blank" style="color: var(--color-primary);">Paolo Frigo</a></p>
+            </div>
+          </div>
+          <div class="event-card past">
+            <div class="event-date"><div class="day">18</div><div class="month">Apr 2026</div></div>
+            <div class="event-info">
+              <span class="label">Workshop &middot; Tarocco e Sound Healing</span>
+              <h3>Il Suono degli Arcani</h3>
+              <p>E.volve studio, Belluno &mdash; con Alessia Piccinino</p>
+            </div>
+          </div>
+          <div class="event-card past">
+            <div class="event-date"><div class="day">8</div><div class="month">Ago 2025</div></div>
+            <div class="event-info">
+              <span class="label">Evento</span>
+              <h3>Il Giardino dei Visionari</h3>
+              <p>Le Boe Del Forte, Forte dei Marmi</p>
+            </div>
+          </div>
+          <div class="event-card past">
+            <div class="event-date"><div class="day">24&ndash;25</div><div class="month">Mag 2025</div></div>
+            <div class="event-info">
+              <span class="label">Evento</span>
+              <h3>Vino al Vino</h3>
+              <p>Villa Bassi, Padova</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="recensioni fade-in" style="margin-top: 3rem;">
+          <span class="label">Le vostre parole</span>
+          <div class="rec-carousel">
+            <button class="carousel-btn rec-prev" type="button" aria-label="Precedente">&#8592;</button>
+            <div class="rec-window">
+
+              <div class="rec-slide active">
+                <div class="testimonial-card">
+                  <p>Dolce, empatica, raffinata e super preparata, delicata e mai fuori posto. &Egrave; riuscita a creare un clima di intimit&agrave; e di piacevole fiducia. Ha una fortissima capacit&agrave; di ascolto, empatia e comprensione dell'altro, sa metterti a proprio agio anche sfiorando delicatamente temi profondi e personali. Un regalo tra amiche apprezzatissimo.</p>
+                  <div class="testimonial-initial">D.</div>
+                </div>
+                <div class="testimonial-card">
+                  <p>Hai saputo accompagnare con gentilezza e rispetto ognuna di noi. Ti ringrazio per aver abbracciato e accolto ogni nostra parola, per aver posto le domande in modo gentile. Ogni tua parola e ogni sguardo per me erano conforto.</p>
+                  <div class="testimonial-initial">I.</div>
+                </div>
+              </div>
+
+              <div class="rec-slide">
+                <div class="testimonial-card">
+                  <p>Chiara &egrave; stata un regalo per tutte. Con la sua delicatezza ha fatto s&igrave; che l'intera esperienza fosse piacevole e adatta alla sensibilit&agrave; di ognuna. &Egrave; stata una serata bella, serena e interessante. Credo che sarebbe splendido vivere l'esperienza anche individualmente.</p>
+                  <div class="testimonial-initial">E.</div>
+                </div>
+                <div class="testimonial-card">
+                  <p>Grazie mille! Mi dispiace molto non essere riuscita a fare una lettura, ma sono felice che sia piaciuta tanto a tutti. Sei favolosa!</p>
+                  <div class="testimonial-initial">G. &mdash; Sposa, Matrimonio 2026</div>
+                </div>
+              </div>
+
+            </div>
+            <button class="carousel-btn rec-next" type="button" aria-label="Successivo">&#8594;</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-name">
+        Chiara Pulin
+        <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cosa-offro">Cosa offro</a></li>
+        <li><a href="#eventi">Eventi</a></li>
+        <li><a href="#poesia">Poesia</a></li>
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
+        <li><a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Chiara Pulin &mdash; Tutti i diritti riservati</p>
+    </footer>
+  </section>
+
+  <!-- ==================== POESIA ==================== -->
+  <section class="page page-screen" id="poesia">
+    <div class="poesia-screen">
+
+      <div class="poesia-head">
+        <p class="tagline">La mia forma di alchimia</p>
         <span class="line-dec"></span>
       </div>
-      <div class="services-grid-2 fade-in">
-        <div class="service-card">
-          <h3>Lettura con il tarocco di Marsiglia</h3>
-          <p>Una sessione individuale, per portare chiarezza su un punto a te caro.<br>
-          Il Tarot sarà specchio del tuo mondo interiore, per illuminare ciò che c'è, non per predire il futuro.</p>
-        </div>
-        <div class="service-card">
-          <h3>Percorsi individuali</h3>
-          <p>Cammini strutturati nel tempo, adattabili alle tue esigenze, per incontrare la tua verità.
-          Convivenze con gli arcani, esercizi creativi per integrarne l'energia e stese profonde per lavorare su di te attraverso questo strumento.</p>
-        </div>
-      </div>
-      <div style="text-align: center; margin-top: 2.5rem;" class="fade-in">
-        <a href="servizi.html" class="btn btn-filled">Scopri di più</a>
-      </div>
+
+      <div class="poesia-main">
+
+        <blockquote class="paoli">
+          &laquo;La poesia &egrave; una maniera di guardare le cose. &Egrave; una maniera di vivere.&raquo;
+          <cite>Gino Paoli</cite>
+        </blockquote>
+
+        <div class="book" id="book">
+          <div class="book-spread">
+            <article class="book-page left"></article>
+            <article class="book-page right"></article>
+            <article class="book-page book-measure" aria-hidden="true"></article>
+            <div class="book-flip" aria-hidden="true">
+              <div class="flip-face front"></div>
+              <div class="flip-face back"></div>
+            </div>
+            <div class="book-nav">
+              <button class="carousel-btn book-prev" type="button" aria-label="Pagina precedente">&#8592;</button>
+              <span class="book-count"></span>
+              <button class="carousel-btn book-next" type="button" aria-label="Pagina successiva">&#8594;</button>
+            </div>
+          </div>
+
+          <div class="book-source">
+
+            <article data-titolo="Poesia sulla poesia">
+              <div class="poem-text">
+                <p>La poesia eleva l'anima all'oltre<br>Immola il dolore alla bellezza<br>Ne fa arte imperfetta e struggente<br>Delirio di magnificenza di una vita perfetta<br>Incompresa</p>
+                <p>Nello srotolio delle parole si onora<br>il brutto lo sbagliato il vulnerabile,<br>lo si innalza a divino eterno stupore<br>di una vita che &egrave; solo bellezza</p>
+                <p>Audacia</p>
+                <p>Mordacia di vivere</p>
+                <p>Paura di non lasciare traccia</p>
+                <p>&Egrave; cos&igrave; che ci si eleva.</p>
+                <p>Nell'attraversare il dolore il brutto lo sbagliato<br>come illusioni passeggere<br>portali di bellezza<br>vie strette e dirette all'Amore</p>
+                <p>Fare il bello di ogni cosa.</p>
+                <p>Farsi vulnerabili.</p>
+                <p>Lasciarsi scrivere.</p>
+                <p>Questo &egrave; fare poesia.</p>
+                <p>Questo &egrave; essere poesia.</p>
+              </div>
+            </article>
+
+            <article data-titolo="Puoi essere chi sei">
+              <div class="poem-text">
+                <p>Puoi essere chi sei<br>Divenire chi sarai<br>In ogni momento sorprendermi<br>Con nuove vesti e mutamenti</p>
+                <p>Puoi divenire chi sei<br>Senza perdere il mio amore<br>Perch&eacute; il coraggio del divenire<br>Del lasciarsi essere</p>
+                <p>Dello scoprirsi nuova divergente natura<br>&Egrave; umano processo</p>
+                <p>So che sai<br>Sappiamo<br>E che abbiamo anche paura</p>
+                <p>Tu sii chi sei<br>E io ti servir&ograve;<br>E nello stesso incessante divenire<br>Equilibreremo pesi e densit&agrave;<br>Convergeremo al cuore<br>Sostenuti e benedetti</p>
+                <p>E nella danza dello svelamento,<br>Nel pi&ugrave; solitario dei cammini,<br>Ci terremo per mano<br>Fino agli stati siderali.</p>
+                <p>Ricordi? ...</p>
+              </div>
+            </article>
+
+            <article data-titolo="Tu.">
+              <div class="poem-text">
+                <p>E chiss&agrave; come invecchieremo,<br>che fine faranno i nostri lineamenti stanchi.<br>Se ci terremo giovani o soltanto abbracciati, sempre.</p>
+                <p>Chiss&agrave; quanti fili argentati vedrai invadere la mia chioma corvina<br>e quanto azzurri potranno ancora divenire i tuoi occhi.</p>
+                <p>Chiss&agrave; la profondit&agrave; del nostro amore<br>che altezze sfiorer&agrave;,<br>che inferni e bellezze ci riveler&agrave;.</p>
+              </div>
+            </article>
+
+            <article data-titolo="Il filo dorato">
+              <div class="poem-text">
+                <p>C'era inscritto in lei<br>il ricordo cos&igrave; indelebile<br>di quell'oltre,<br>in forma di sensazione, come una inspiegabile mancanza,<br>che lo portava con s&egrave; sempre,<br>come una scomoda malinconia,<br>fuoriera di pianti inaspettati<br>e desiderio di morte.</p>
+                <p>Una malinconia cos&igrave; profonda,<br>che nemmeno si rendeva conto<br>di quanto la stessa<br>fosse la prova provata<br>dell'esistenza di ci&ograve; che non vedeva.</p>
+                <p>Quella stessa malinconia<br>era il messaggio che ricercava ogni giorno<br>dalla vita, fuori da s&egrave;.</p>
+                <p>La malinconia di cui si sentiva<br>tutta fatta, composta, abitata e vissuta<br>non era mancanza,<br>quanto conferma<br>che lei non &egrave; ci&ograve; che crede di essere<br>bens&igrave; ci&ograve; che crede le manchi.</p>
+                <p>La malinconia<br>&egrave; il filo dorato<br>che la ancora a ci&ograve; che &egrave;,<br>che le ricorda<br>il dolore di identificarsi con l'illusione.</p>
+                <p>La malinconia &egrave; la memoria<br>di ci&ograve; che sei<br>quando te ne dimentichi.</p>
+              </div>
+            </article>
+
+          </div><!-- /book-source -->
+        </div><!-- /book -->
+      </div><!-- /poesia-main -->
+
+      <aside class="poesia-news">
+        <span class="label">Newsletter</span>
+        <h3>Sulle tracce del Bianconiglio</h3>
+        <span class="line-dec"></span>
+        <p>La mia newsletter &egrave; lo spazio in cui condivido riflessioni creative, il lavoro su di s&eacute; e le esplorazioni con il Tarot. &Egrave; un filo diretto, autentico, per chi vuole camminare insieme.</p>
+        <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="btn btn-filled">Iscriviti</a>
+      </aside>
+
+      <button class="news-trigger" type="button" aria-label="La newsletter">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M22 6H2v2.5h20V6zm0 5.3H2V14h20v-2.7zM2 16.6v6.4l10-5 10 5v-6.4H2z"/></svg>
+      </button>
+
+    </div>
+
+    <div class="home-foot">
+      <a href="mailto:chiara.pulin.90@gmail.com">chiara.pulin.90@gmail.com</a>
+      <span>&copy; 2025 Chiara Pulin</span>
     </div>
   </section>
 
-  <!-- Frase -->
-  <div class="quote-section fade-in" style="background: var(--hero-gradient); padding: 2.2rem 2rem;">
-    <blockquote style="color: var(--color-hero-text);">
-      Hai mai pensato a confusione e insoddisfazione come tuoi alleati?<br>
-      Ciò che credi essere il problema è l'alleato che ti chiede di ascoltare<br>
-      i tuoi bisogni più profondi.
-    </blockquote>
+  <!-- ==================== CHI SONO ==================== -->
+  <section class="page" id="chi-sono">
+
+    <section class="section page-nohead">
+      <div class="container">
+        <div class="about-teaser fade-in">
+          <div class="about-col">
+            <div class="about-photo">
+              <img src="sito2.jpg" alt="Chiara Pulin">
+            </div>
+            <a href="#cosa-offro" class="btn btn-filled">Scopri i servizi</a>
+          </div>
+          <div class="about-text">
+            <h2 style="font-style: italic;">Ricercatrice della Verit&agrave; in costante evoluzione</h2>
+            <span class="line-dec line-dec-left"></span>
+            <p>In questa vita ho vissuto molte vite, e le porto tutte con me.</p>
+            <p>Per anni ho lavorato in stalla con le capre (mio grande amore), finch&eacute; il mio cuore non ha pi&ugrave; retto emotivamente, e mi sono arresa.<br>In quel momento tutto &egrave; crollato.<br><em>Perch&eacute; tutto doveva cambiare.</em></p>
+            <p>&Egrave; stato proprio in quel periodo che ho incontrato il <em>Lavoro su di s&eacute;</em> (divulgato da Salvatore Brizzi) e il <em>tarocco</em> (che ho studiato con Fabiana Spagnuolo per poi approfondire con Carlo Bozzelli e Paolo Serioli). Rimasi esterrefatta da quanto riuscisse a leggermi dentro questo strumento. Puro incanto, che ancora mi accompagna.</p>
+            <p>Cos&igrave; mi sono lasciata accompagnare da entrambi, nelle altre vite attraversate, fino a quella di oggi, della quale sono colonne portanti e nella quale ho scelto di trasmettere tutto ci&ograve; che imparo ogni giorno, sulla vita e sull'essere umano, attraverso di essi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="quote-section banda fade-in" style="padding: 2.2rem 2rem;">
+      <blockquote>
+        Hai mai pensato a confusione e insoddisfazione come tuoi alleati?<br>
+        Ci&ograve; che credi essere il problema &egrave; l'alleato che ti chiede di ascoltare<br>
+        i tuoi bisogni pi&ugrave; profondi.
+      </blockquote>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-name">
+        Chiara Pulin
+        <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#cosa-offro">Cosa offro</a></li>
+        <li><a href="#eventi">Eventi</a></li>
+        <li><a href="#poesia">Poesia</a></li>
+        <li><a href="#chi-sono">Chi sono</a></li>
+        <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
+        <li><a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Chiara Pulin &mdash; Tutti i diritti riservati</p>
+    </footer>
+  </section>
+
+  <!-- ==================== POPUP CONTATTI ==================== -->
+  <div class="mail-pop" id="mail-pop" hidden>
+    <div class="mail-pop-backdrop"></div>
+    <div class="mail-pop-card" role="dialog" aria-modal="true" aria-label="La mia mail">
+      <button type="button" class="mail-pop-close" aria-label="Chiudi">&times;</button>
+      <div class="mail-pop-row">
+        <a href="mailto:chiara.pulin.90@gmail.com">chiara.pulin.90@gmail.com</a>
+        <button type="button" class="mail-copy" data-copy>Copia</button>
+      </div>
+    </div>
   </div>
 
-  <!-- Workshop ed eventi — spostato dalla pagina servizi -->
-  <section class="section" style="padding: 3rem 0;">
-    <div class="container">
-      <div class="service-block fade-in" style="padding: 2rem 0;">
-        <div class="service-visual" style="align-self: center; max-height: 360px; overflow: hidden;">
-          <img src="SERVIZI2.jpg" alt="Workshop ed eventi" style="height: 360px; width: 100%; object-fit: cover; object-position: center;"></div>
-        <div class="service-detail">
-          <span class="label">Insieme, in presenza</span>
-          <h2>Workshop ed eventi</h2>
-          <span class="line-dec line-dec-left"></span>
-          <p>
-            Momenti di condivisione ed esplorazione di sé attraverso il Tarot ed altri strumenti,
-            sostenuti dalla forza del gruppo.
-          </p>
-          <p>
-            Ogni workshop avrà un tema e sarà pensato come uno spazio sicuro nel quale scoprirsi
-            e sostenersi, nella propria bellezza e verità.
-          </p>
-          <p>
-            Collaboro con formatori teatrali, insegnanti di yoga e meditazione, sound healer
-            e personal stylist. Sono sempre aperta a nuove collaborazioni stimolanti.
-          </p>
-          <a href="eventi.html" class="btn btn-filled">eventi in programma</a>
-        </div>
-      </div>
+  <!-- ==================== POPUP NEWSLETTER (telefono) ==================== -->
+  <div class="mail-pop" id="news-pop" hidden>
+    <div class="mail-pop-backdrop"></div>
+    <div class="mail-pop-card" role="dialog" aria-modal="true" aria-label="Newsletter">
+      <button type="button" class="mail-pop-close" aria-label="Chiudi">&times;</button>
+      <span class="label">Newsletter</span>
+      <h3>Sulle tracce del Bianconiglio</h3>
+      <p>La mia newsletter &egrave; lo spazio in cui condivido riflessioni creative, il lavoro su di s&eacute; e le esplorazioni con il Tarot. &Egrave; un filo diretto, autentico, per chi vuole camminare insieme.</p>
+      <a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank" class="btn btn-filled">Iscriviti su Substack</a>
     </div>
-  </section>
+  </div>
 
-  <!-- Chi sono -->
-  <section class="section section-alt" id="chi-sono" style="padding: 3.5rem 0;">
-    <div class="container">
-      <div class="about-teaser fade-in" style="align-items: center;">
-        <div class="about-duo">
-          <img src="sito2.jpg" alt="Chiara Pulin">
-          <img src="sito4.jpg" alt="Chiara Pulin">
-        </div>
-        <div class="about-text">
-          <span class="label">Chi sono</span>
-          <h2 style="font-style: italic;">Ricercatrice della Verità in costante evoluzione</h2>
-          <span class="line-dec line-dec-left"></span>
-          <p>In questa vita ho vissuto molte vite, e le porto tutte con me.</p>
-          <p>Per anni ho lavorato in stalla con le capre (mio grande amore), finché il mio cuore non ha più retto emotivamente, e mi sono arresa.<br>
-          In quel momento tutto è crollato.<br>
-          <em>Perché tutto doveva cambiare.</em></p>
-          <p>È stato proprio in quel periodo che ho incontrato il <em>Lavoro su di sé</em> (divulgato da Salvatore Brizzi) e il <em>tarocco</em> (che ho studiato con Fabiana Spagnuolo). Rimasi esterrefatta da quanto riuscisse a leggermi dentro questo strumento. Pura magia.</p>
-          <p>Così mi sono lasciata accompagnare da entrambi, nelle altre vite attraversate, fino a quella di oggi, della quale sono colonne portanti.</p>
-          <a href="servizi.html" class="btn">Scopri i servizi</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Le vostre testimonianze — carosello 2 card per volta -->
-  <section class="section" id="testimonianze" style="background: var(--color-bg);">
-    <div class="container">
-      <div class="section-header fade-in">
-        <h2>Le vostre testimonianze</h2>
-        <span class="line-dec"></span>
-      </div>
-      <style>
-        #testimonianze .testimonial-card { background: var(--color-surface); }
-      </style>
-      <div class="testimonials-carousel fade-in">
-        <button class="carousel-btn carousel-prev" aria-label="Precedente">&#8592;</button>
-        <div class="carousel-window">
-
-          <!-- Slide 1 -->
-          <div class="carousel-slide active">
-            <div class="testimonial-card">
-              <p>Dolce, empatica, raffinata e super preparata, delicata e mai fuori posto. È riuscita a creare un clima di intimità e di piacevole fiducia. Ha una fortissima capacità di ascolto, empatia e comprensione dell'altro, sa metterti a proprio agio anche sfiorando delicatamente temi profondi e personali. Un regalo tra amiche apprezzatissimo.</p>
-              <div class="testimonial-initial">D.</div>
-            </div>
-            <div class="testimonial-card">
-              <p>Hai saputo accompagnare con gentilezza e rispetto ognuna di noi. Ti ringrazio per aver abbracciato e accolto ogni nostra parola, per aver posto le domande in modo gentile. Ogni tua parola e ogni sguardo per me erano conforto.</p>
-              <div class="testimonial-initial">I.</div>
-            </div>
-          </div>
-
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <div class="testimonial-card">
-              <p>Chiara è stata un regalo per tutte. Con la sua delicatezza ha fatto sì che l'intera esperienza fosse piacevole e adatta alla sensibilità di ognuna. È stata una serata bella, serena e interessante. Credo che sarebbe splendido vivere l'esperienza anche individualmente.</p>
-              <div class="testimonial-initial">E.</div>
-            </div>
-            <div class="testimonial-card">
-              <p>Grazie per il lavoro fatto con il Cuore. L'ho percepito tanto.</p>
-              <div class="testimonial-initial">A.</div>
-            </div>
-          </div>
-
-          <!-- Slide 3 -->
-          <div class="carousel-slide">
-            <div class="testimonial-card">
-              <p>Ieri è stato davvero potente. Ho elaborato nelle ore successive quanto mi ci rivedo in quello che è venuto fuori, incredibilmente tanto. Accolgo questa dolce osservazione di me stessa.</p>
-              <div class="testimonial-initial">J.</div>
-            </div>
-            <div class="testimonial-card">
-              <p>Grazie mille! Mi dispiace molto non essere riuscita a fare una lettura, ma sono felice che sia piaciuta tanto a tutti. Sei favolosa! ❤️</p>
-              <div class="testimonial-initial">G. — Sposa, Matrimonio 2026</div>
-            </div>
-          </div>
-
-        </div>
-        <button class="carousel-btn carousel-next" aria-label="Successivo">&#8594;</button>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-name">
-      Chiara Pulin
-      <a href="mailto:chiara.pulin.90@gmail.com" class="footer-email">chiara.pulin.90@gmail.com</a>
-    </div>
-    <ul class="footer-links">
-      <li><a href="#chi-sono">Chi sono</a></li>
-      <li><a href="servizi.html">Cosa offro</a></li>
-      <li><a href="poesia.html">Poesia</a></li>
-      <li><a href="eventi.html">Eventi</a></li>
-      <li><a href="https://substack.com/@sulletraccedelbianconiglio" target="_blank">Newsletter</a></li>
-      <li>
-        <a href="https://www.instagram.com/chiara_pulin/" target="_blank" class="footer-icon-link" aria-label="Instagram">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </a>
-      </li>
-    </ul>
-    <p class="footer-copy">© 2025 Chiara Pulin — Tutti i diritti riservati</p>
-  </footer>
-
-  <script src="js/main.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
